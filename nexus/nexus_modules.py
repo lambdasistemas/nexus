@@ -136,8 +136,6 @@ def make_admin_module(admin_site, name=None, app_name='admin'):
     for model, admin in admin_site._registry.iteritems():
         if isinstance(model, ModelBase):
             new_site.register(model, make_nexus_model_admin(admin))
-        else:
-            print "No es instance", model
 
     class AdminModule(nexus.NexusModule):
         home_url = 'index'
